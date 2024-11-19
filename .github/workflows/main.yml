@@ -42,6 +42,6 @@ jobs:
           script: |
             cd HeavyEquipment
             ls -al
-            docker-compose down || true
-            docker-compose pull
-            docker-compose up -d
+            sudo docker-compose down || true
+            sudo docker-compose pull
+            sudo docker-compose up -d
