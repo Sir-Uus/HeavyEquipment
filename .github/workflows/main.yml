@@ -22,10 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
-
-      - name: List Files for Debugging
-        run: ls -al
-
+          
       # Build and push Docker images
       - name: Build and Push Services
         run: |
@@ -41,7 +38,6 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd HeavyEquipment
-            ls -al
             sudo docker-compose down || true
             sudo docker-compose pull
-            sudo docker-compose up -d
+            sudo docker-compose up -d --build
