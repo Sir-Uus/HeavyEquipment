@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            
+            ls -al
             docker-compose down || true
             docker-compose pull
             docker-compose up -d
