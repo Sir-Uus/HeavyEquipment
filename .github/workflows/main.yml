@@ -23,6 +23,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: List Files for Debugging
+        run: ls -al
+
       # Build and push Docker images
       - name: Build and Push Services
         run: |
@@ -37,6 +40,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            
             docker-compose down || true
             docker-compose pull
             docker-compose up -d
